@@ -27,6 +27,11 @@ jobs:
     - name: Get short SHA
       id: slug
       run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
+
+
+    - name: build samples
+      run: |
+            java -version
       
     - uses: actions/upload-artifact@v4
       with:
