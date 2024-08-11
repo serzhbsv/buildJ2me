@@ -32,4 +32,4 @@ jobs:
       with:
         name: J2me-build-${{ steps.slug.outputs.sha8 }}
         path: |
-               /home/runner/work/J2meBuild/
+               /home/runner/work/BuildJ2me/
