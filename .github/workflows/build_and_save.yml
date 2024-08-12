@@ -6,12 +6,12 @@ on:
       - '*'
       
   workflow_dispatch:
-    inputs:
-      url:
-        description: 'Torrent file URL'
-        required: true
-      compress:
-        description: 'Compress File After Download'
+   # inputs:
+   #   url:
+   #     description: 'Torrent file URL'
+   #     required: true
+  #    compress:
+    #    description: 'Compress File After Download'
 
 
 jobs:
@@ -36,7 +36,7 @@ jobs:
 
     - name: build samples
       run: |
-              apt install libxtst6 libxt6
+              apt-get install libxtst6 libxt6
               ln -s /usr/local/lib/R/lib/libR.so /lib/x86_64-linux-gnu/libR.so
                for x in `ls ./bin`
                do
