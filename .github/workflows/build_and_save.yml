@@ -27,7 +27,7 @@ jobs:
         java-version: 8
         
     - uses: cedx/setup-ant@main
-        with:
+      with:
           optional-tasks: true
     - run: ant -version
 
