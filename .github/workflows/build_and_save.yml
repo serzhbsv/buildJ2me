@@ -37,7 +37,7 @@ jobs:
     - name: build samples
       run: |
               sudo   apt-get install libxtst6 libxt6
-              ln -s /usr/local/lib/R/lib/libR.so /lib/x86_64-linux-gnu/libR.so
+              sudo ln -s /usr/local/lib/R/lib/libR.so /lib/x86_64-linux-gnu/libR.so
                for x in `ls ./bin`
                do
                chmod +x ./bin/$x
