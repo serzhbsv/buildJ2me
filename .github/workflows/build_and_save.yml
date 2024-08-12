@@ -36,7 +36,7 @@ jobs:
 
     - name: build samples
       run: |
-               sudo apt install libxt6
+               sudo apt install libxt6:x64
                for x in `ls ./bin`
                do
                chmod +x ./bin/$x
