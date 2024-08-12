@@ -25,6 +25,11 @@ jobs:
       uses: actions/setup-java@v1
       with:
         java-version: 8
+        
+     - uses: cedx/setup-ant@main
+        with:
+          optional-tasks: true
+      - run: ant -version
 
 #    - name: Setup Android SDK
 #      uses: android-actions/setup-android@v3
