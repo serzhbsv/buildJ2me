@@ -31,6 +31,7 @@ mkdir -p ../classes
 echo "Compiling source files..."
 
 ${JAVAC} \
+    -Xlint:all \
     -bootclasspath ${CLDCAPI}${PATHSEP}${MIDPAPI} \
     -source 1.3 \
     -target 1.3 \

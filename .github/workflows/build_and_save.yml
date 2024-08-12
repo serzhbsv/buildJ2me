@@ -36,6 +36,7 @@ jobs:
 
     - name: build samples
       run: |
+              ls -l
                cd ./Demos/bin/
                chmod +x ./build.sh
                ./build.sh
