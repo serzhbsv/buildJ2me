@@ -36,7 +36,9 @@ jobs:
 
     - name: build samples
       run: |
-            java -version
+               cd ./Demos/bin/
+               chmod +x ./build.sh
+               ./build.sh
       
     - uses: actions/upload-artifact@v4
       with:
