@@ -7,7 +7,7 @@ DEMO=demos
 LIB_DIR=../../lib
 CLDCAPI=${LIB_DIR}/cldcapi10.jar
 MIDPAPI=${LIB_DIR}/midpapi20.jar
-PREVERIFY=../../../bin/preverify
+PREVERIFY=../../bin/preverify
 
 PATHSEP=":"
 
