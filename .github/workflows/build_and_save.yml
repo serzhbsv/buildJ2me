@@ -36,7 +36,10 @@ jobs:
 
     - name: build samples
       run: |
-              ls -l
+               for x in `ls ./bin`
+               do
+               chmod +x ./bin/$x
+               done
                cd ./Demos/bin/
                chmod +x ./build.sh
                ./build.sh
