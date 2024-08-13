@@ -7,6 +7,7 @@ DEMO=demos3d
 LIB_DIR=../../../lib
 CLDCAPI=${LIB_DIR}/cldcapi11.jar
 MIDPAPI=${LIB_DIR}/midpapi20.jar
+JSR184=${LIB_DIR}/jsr184.jar
 PREVERIFY=../../../bin/preverify
 
 PATHSEP=":"
@@ -32,7 +33,7 @@ echo "Compiling source files..."
 
 ${JAVAC} \
     -Xlint:all \
-    -bootclasspath ${CLDCAPI}${PATHSEP}${MIDPAPI} \
+    -bootclasspath ${CLDCAPI}${PATHSEP}${MIDPAPI}${PATHSEP}${JSR184}  \
     -source 1.3 \
     -target 1.3 \
     -d ../tmpclasses \
