@@ -9,11 +9,11 @@ on:
     inputs:
       j2mesrc:
         description: 'J2me src dir'
-        default: 'J2meSrc'
+        default: 'Demos'
       artifactdir:
         description: 'Directory j2me compile jar'
-        default: 'J2meSrc'
-# ${{ github.event.inputs.MANIFEST_BRANCH }}
+        default: 'Demos'
+# ${{ github.event.inputs.j2mesrc}}
 
 jobs:
   build:
@@ -49,7 +49,7 @@ jobs:
                do
                chmod +x ./bin/$x
                done
-               cd ./J2meSrc/Demos/bin/
+               cd ./J2meSrc/${{ github.event.inputs.j2mesrc}}/bin/
                chmod +x ./build.sh
                ./build.sh
       
@@ -57,4 +57,4 @@ jobs:
       with:
         name: J2me-build-${{ steps.slug.outputs.sha8 }}
         path: |
-               /home/runner/work/buildJ2me/buildJ2me/J2meSrc/
+               /home/runner/work/buildJ2me/buildJ2me/J2meSrc/${{ github.event.inputs.artifactdir}}/bin/
