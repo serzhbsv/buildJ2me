@@ -6,13 +6,13 @@ on:
       - '*'
       
   workflow_dispatch:
-   # inputs:
-   #   url:
-   #     description: 'Torrent file URL'
-   #     required: true
-  #    compress:
-    #    description: 'Compress File After Download'
-
+    inputs:
+      j2mesrc:
+        description: 'J2me src dir'
+        
+      artifactdir:
+        description: 'Directory j2me compile jar'
+# ${{ github.event.inputs.MANIFEST_BRANCH }}
 
 jobs:
   build:
