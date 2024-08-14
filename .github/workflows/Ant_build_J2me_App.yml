@@ -30,7 +30,6 @@ jobs:
     - uses: cedx/setup-ant@main
       with:
           optional-tasks: true
-    - run: ant -version
 
 #    - name: Setup Android SDK
 #      uses: android-actions/setup-android@v3
@@ -49,12 +48,11 @@ jobs:
                do
                chmod +x ./bin/$x
                done
-               cd ${{ github.event.inputs.j2mesrc}}/bin/
-               chmod +x ./build.sh
-               ./build.sh
+               cd ${{ github.event.inputs.j2mesrc}}
+               ant dist-all
       
     - uses: actions/upload-artifact@v4
       with:
         name: J2me-build-${{ steps.slug.outputs.sha8 }}
         path: |
-                  ${{ github.event.inputs.artifactdir}}/bin/
+                  ${{ github.event.inputs.artifactdir}}
