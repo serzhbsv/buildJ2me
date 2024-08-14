@@ -1,0 +1,35 @@
+                            Jimm - Mobile Messaging
+                              ASPRO MODIFICATION
+                             <http://jimm.net.ru/>
+
+================================================================================
+This README describes changes in compiling process. Basic procedure is the same
+as described in original README bundled with original Jimm sources (could be
+on http://www.jimm.org). Aspro MOD sources need some extra for successful build:
+
+Recommended resources
+=====================
+- Apache Ant 1.7.0 (http://ant.apache.org)
+- Ant Contrib package 1.0b3 (http://ant-contrib.sourceforge.net/) * NEW TO ASPRO
+- Sun JavaTM Wireless Toolkit 2.5.2 (http://java.sun.com/products/sjwtoolkit/)
+- Java Runtime Environment jre1.6.0_05 (http://www.java.com/getjava/)
+- Java Development Kit jdk1.6.0_05 (http://java.sun.com/javase/downloads/)
+
+Changing BUILD.XML to your needs
+================================
+Change the paths to resources listed above to your specific environment as usual
+* e.g. <property name="WTK/DIR" location="c:\Program Files\WTK2.5.2"/>
+* e.g. <property name="proguard" value="c:\Program Files\proguard"/>
+* place ant-contrib-1.0b3.jar to apache-ant/lib directory
+* create proper OS environment variables ANT_HOME, JAVA_HOME and place path to 
+  your apache-ant directory into the existing PATH variable
+* you don't need to change <taskdef resource="net/sf/antcontrib/antlib.xml"/>
+* the BUILDS_LIST property contains the build you want to get, e.g.
+  <property name="builds_list" value="Midp2full,Midp2Ani" />
+  As you can see, multiple builds can be created if you specify them divided by
+  commas.
+* Don't forget to check the paths in section where MIDP API classes and all 
+  extension classes required by the chosen target are specified. If you are on
+  Linux, items are delimited by ":", if you are on Windows, items are delimited
+  by ";"
+  
