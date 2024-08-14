@@ -56,9 +56,9 @@ Author(s): Manuel Linsmayer, Andreas Rossbacher
     <!--  *******************************************************************   -->
     <!--  This property must point at the ProGuard JAR file, normally found     -->
     <!--  in the lib directory of the ProGuard distribution.                    -->
-    <property name="proguard/lib"      value="${proguard}/lib/proguard.jar"      />
+    <!--  property name="proguard/lib"      value="${proguard}/lib/proguard.jar"      -->
     <!--  Register Proguard task  -->
-    <taskdef name="proguard" classname="proguard.ant.ProGuardTask" classpath="${proguard/lib}" />
+    <!--  taskdef name="proguard" classname="proguard.ant.ProGuardTask" classpath="${proguard/lib}" -->
     
     <!--  *******************************************************************   -->
     <!-- Include Ant-Contrib Tasks -->
