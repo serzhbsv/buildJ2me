@@ -13,10 +13,10 @@ jobs:
 
     runs-on: ubuntu-latest
 
-        
-    - uses: cedx/setup-ant@main
-     with:
-         optional-tasks: true
+    steps:
+             - uses: cedx/setup-ant@main
+               with:
+               optional-tasks: true
 
     - name: ListFiles
       run: |
