@@ -23,7 +23,14 @@ jobs:
     steps:
     - uses: actions/checkout@v2
     - name: set up JDK 8
-      uses: guillonapa/action-maven-cli/jdk8@master
+
+# Runs a set of commands using the runners shell
+    - name: Run maven script
+    - uses: guillonapa/action-maven-cli/jdk8@master
+      with:
+        lifecycle: 'clean package test'
+
+
         
     - uses: cedx/setup-ant@main
       with:
