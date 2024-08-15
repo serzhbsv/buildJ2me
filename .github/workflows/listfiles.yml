@@ -14,10 +14,10 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-             - uses: cedx/setup-ant@main
-               with:
+          - uses: cedx/setup-ant@main
+            with:
                optional-tasks: true
 
-    - name: ListFiles
-      run: |
-              ls /opt
+          - name: ListFiles
+            run: |
+                  ls /opt
