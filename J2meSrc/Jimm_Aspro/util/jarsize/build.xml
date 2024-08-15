@@ -34,6 +34,9 @@ Foundation, Inc., 59 Temple Place - Suite 330, Boston, MA  02111-1307, USA.
 		<mkdir dir="${build}/classes"/>
 		<javac includeantruntime="false" srcdir="${src}"
 			destdir="${build}/classes">
+		<classpath>
+          <pathelement location="/opt/hostedtoolcache/ant/1.10.14/x64/lib/ant.jar"/>
+      </classpath>	
 		</javac>
 	</target>
 
