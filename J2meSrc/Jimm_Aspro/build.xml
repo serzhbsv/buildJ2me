@@ -37,8 +37,8 @@ Author(s): Manuel Linsmayer, Andreas Rossbacher
     <property file="config/env/${config}.properties" />
     <property file="config/build-set.properties" />
 
-    <property name="DEFAULT/midp"      location="../../" />
-    <property name="MIDP2/midp"        location="../../" />
+    <property name="DEFAULT/midp"      location="/home/runner/work/buildJ2me/buildJ2me" />
+    <property name="MIDP2/midp"        location=" /home/runner/work/buildJ2me/buildJ2me" />
     <property name="RIM/midp"          location="CHANGE ME" />
     <property name="MOTOROLA/midp"     location="CHANGE ME" />
     
