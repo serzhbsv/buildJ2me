@@ -20,5 +20,4 @@ jobs:
 
           - name: ListFiles
             run: |
-                  ls /opt
                   ls /opt/hostedtoolcache/ant/1.10.14/x64
