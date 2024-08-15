@@ -9,10 +9,10 @@ on:
     inputs:
       j2mesrc:
         description: 'J2me src dir'
-        default: '/home/runner/work/buildJ2me/buildJ2me/J2meSrc/Demos'
+        default: '/home/runner/work/buildJ2me/buildJ2me/J2meSrc/Jimm_Aspro'
       artifactdir:
         description: 'Directory j2me compile jar'
-        default: '/home/runner/work/buildJ2me/buildJ2me/J2meSrc/Demos'
+        default: '/home/runner/work/buildJ2me/buildJ2me/J2meSrc/Jimm_Aspro'
 # ${{ github.event.inputs.j2mesrc}}
 
 jobs:
