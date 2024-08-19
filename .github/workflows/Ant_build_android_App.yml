@@ -1,0 +1,60 @@
+name: Android build for ant
+
+on:
+  push:
+    tags:
+      - '*'
+      
+  workflow_dispatch:
+    inputs:
+      androidsrc:
+        description: 'Android build dir'
+        default: '/home/runner/work/buildJ2me/buildJ2me/J2meSrc/Jimm_Aspro/android'
+      artifactdir:
+        description: 'Artifaction der zipped'
+        default: '/home/runner/work/buildJ2me/buildJ2me/J2meSrc/Jimm_Aspro/android'
+# ${{ github.event.inputs.j2mesrc}}
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    
+    - name: set up JDK 8
+      uses: actions/setup-java@v1
+      with:
+        java-version: 8
+
+        
+    - uses: cedx/setup-ant@main
+      with:
+          optional-tasks: true
+
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+    
+    - name: Get short SHA
+      id: slug
+      run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
+
+
+    - name: build samples
+      run: |
+               sudo dpkg --add-architecture i386
+               sudo apt-get update
+               sudo apt-get install libc6:i386 libncurses5:i386 libstdc++6:i386 libxt6:i386
+               for x in `ls ./bin`
+               do
+               chmod +x ./bin/$x
+               done
+               cd ${{ github.event.inputs.androidsrc}}
+               ant dist-all
+      
+    - uses: actions/upload-artifact@v4
+      with:
+        name: Ant-build-Android-${{ steps.slug.outputs.sha8 }}
+        path: |
+                  ${{ github.event.inputs.artifactdir}}
