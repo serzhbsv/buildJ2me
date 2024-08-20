@@ -38,8 +38,8 @@ jobs:
       with:
             cmdline-tools-version: 8512546
     - name: Tested Android SDK
-       run: |
-               /usr/local/lib/android/sdk/cmdline-tools/7.0/bin/sdkmanager --list
+      run: |
+            /usr/local/lib/android/sdk/cmdline-tools/7.0/bin/sdkmanager --list
 
     
     - name: Get short SHA
