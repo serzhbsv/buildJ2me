@@ -41,8 +41,8 @@ jobs:
     - name: Tested Android SDK
       run: |
               /usr/local/lib/android/sdk/cmdline-tools/7.0/bin/sdkmanager --list
-              sudo l /usr/local/lib/android/sdk/
-              sudo l /usr/local/lib/android/sdk/tools
+              sudo ls /usr/local/lib/android/sdk/
+              sudo ls /usr/local/lib/android/sdk/tools
 
     
     - name: Get short SHA
