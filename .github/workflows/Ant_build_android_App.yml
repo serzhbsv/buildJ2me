@@ -37,9 +37,9 @@ jobs:
       uses: android-actions/setup-android@v3
       with:
             cmdline-tools-version: 8512546
-    
-    - name: Test android Sdk
-      run: /usr/local/lib/android/sdk/cmdline-tools/7.0/bin/sdkmanager --list
+    - name: Tested Android SDK
+       run: |
+               /usr/local/lib/android/sdk/cmdline-tools/7.0/bin/sdkmanager --list
 
     
     - name: Get short SHA
