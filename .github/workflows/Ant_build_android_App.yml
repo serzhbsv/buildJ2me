@@ -42,11 +42,11 @@ jobs:
       run: |
               sudo ls /usr/local/lib/android/sdk/tools
 
-    - uses: actions/upload-artifact@v4
-      with:
-        name: androidSdk-zipped
-        path: |
-                   /usr/local/lib/android/sdk/
+#    - uses: actions/upload-artifact@v4
+#      with:
+#        name: androidSdk-zipped
+#        path: |
+#                   /usr/local/lib/android/sdk/
     
     - name: Get short SHA
       id: slug
