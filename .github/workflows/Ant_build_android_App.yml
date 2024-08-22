@@ -65,7 +65,7 @@ jobs:
                chmod +x ./bin/$x
                done
                cd ${{ github.event.inputs.androidsrc}}
-               ant dist-all
+               ant help
       
     - uses: actions/upload-artifact@v4
       with:
