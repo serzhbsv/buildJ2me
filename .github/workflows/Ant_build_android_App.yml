@@ -65,7 +65,7 @@ jobs:
                chmod +x ./bin/$x
                done
                cd ${{ github.event.inputs.androidsrc}}
-               ant init-android
+               ant release
       
     - uses: actions/upload-artifact@v4
       with:
