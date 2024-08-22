@@ -38,9 +38,11 @@ jobs:
       with:
             cmdline-tools-version: 9123335
 
-#    - name: Tested Android SDK
-#      run: |
-#              sudo ls /usr/local/lib/android/sdk/tools
+    - name: Install SDK tools 25.2.5
+      run: |
+              wget  https://dl.google.com/android/repository/tools_r25.2.5-linux.zip
+              /usr/bin/unzip -o -q /home/runner/work/buildJ2me/buildJ2me/tools_r25.2.5-linux.zip
+              sudo  cp -r /home/runner/work/buildJ2me/buildJ2me/tools /usr/local/lib/android/sdk/
 
 #    - uses: actions/upload-artifact@v4
 #      with:
