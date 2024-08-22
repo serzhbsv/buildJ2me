@@ -22,20 +22,20 @@ jobs:
         java-version: 8
 
         
-    - uses: cedx/setup-ant@main
-      with:
-          optional-tasks: true
+#    - uses: cedx/setup-ant@main
+#      with:
+#          optional-tasks: true
 
-    - name: Setup Android SDK
-      uses: android-actions/setup-android@v3
-      with:
-            cmdline-tools-version: 9123335
+#    - name: Setup Android SDK
+#      uses: android-actions/setup-android@v3
+#      with:
+ #           cmdline-tools-version: 9123335
 
     - name: Tested Android SDK
       run: |
               wget  https://dl.google.com/android/repository/tools_r25.2.5-linux.zip
               /usr/bin/unzip -o -q /home/runner/work/buildJ2me/buildJ2me/tools_r25.2.5-linux.zip
-              sudo ls
+              sudo ls tools
 
 #    - uses: actions/upload-artifact@v4
 #      with:
