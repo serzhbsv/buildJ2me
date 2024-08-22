@@ -33,7 +33,7 @@ jobs:
 
     - name: Tested Android SDK
       run: 
-              sudo zip -r /home/runner/work/buildJ2me/buildJ2me/J2meSrc/toolssdk.zip /usr/local/lib/android/sdk/tools
+              /usr/local/lib/android/sdk/cmdline-tools/8.0/bin/sdkmanager --list
 
 #    - uses: actions/upload-artifact@v4
 #      with:
@@ -43,8 +43,8 @@ jobs:
                   
                   
         
-    - uses: actions/upload-artifact@v4
-      with:
-        name: SDK Zipped
-        path: /home/runner/work/buildJ2me/buildJ2me/J2meSrc/toolssdk.zip
+#    - uses: actions/upload-artifact@v4
+#      with:
+#        name: SDK Zipped
+#        path: /home/runner/work/buildJ2me/buildJ2me/J2meSrc/toolssdk.zip
  
