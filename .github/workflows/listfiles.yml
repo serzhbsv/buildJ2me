@@ -17,14 +17,19 @@ jobs:
           - uses: cedx/setup-ant@main
             with:
                optional-ta,sks: true
-
-          - name: ListFiles
-            run: |
-                  ls /opt/hostedtoolcache/ant/1.10.14/x64/lib
+    - name: Setup Android SDK
+      uses: android-actions/setup-android@v3
+      with:
+            cmdline-tools-version: 9123335
+            
+    
+#     - name: ListFiles
+#            run: |
+#                  ls /opt/hostedtoolcache/ant/1.10.14/x64/lib
                   
           - uses: actions/upload-artifact@v4
             with:
                  name: ant-libDump
                  path: |
-                       /opt/hostedtoolcache/ant/1.10.14/x64/lib
+                          /usr/local/lib/android/sdk/
  
