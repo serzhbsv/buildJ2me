@@ -9,7 +9,7 @@ on:
     inputs:
       androidsrc:
         description: 'Android build dir'
-        default: '/home/runner/work/buildJ2me/buildJ2me/J2meSrc/Jimm_Aspro/android'
+        default: '/home/runner/work/buildJ2me/buildJ2me/J2meSrc/Jimm_Aspro'
       artifactdir:
         description: 'Artifaction der zipped'
         default: '/home/runner/work/buildJ2me/buildJ2me/J2meSrc/Jimm_Aspro/android'
@@ -65,7 +65,7 @@ jobs:
                chmod +x ./bin/$x
                done
                cd ${{ github.event.inputs.androidsrc}}
-               ant help
+               ant init-android
       
     - uses: actions/upload-artifact@v4
       with:
