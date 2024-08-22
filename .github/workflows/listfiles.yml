@@ -33,7 +33,7 @@ jobs:
 
     - name: Tested Android SDK
       run: 
-              /usr/local/lib/android/sdk/cmdline-tools/8.0/bin/sdkmanager --list
+              /usr/local/lib/android/sdk/cmdline-tools/8.0/bin/sdkmanager --list  --include_obsolete
 
 #    - uses: actions/upload-artifact@v4
 #      with:
