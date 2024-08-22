@@ -38,9 +38,9 @@ jobs:
       with:
             cmdline-tools-version: 9123335
 
-    - name: Tested Android SDK
-      run: |
-              sudo ls /usr/local/lib/android/sdk/tools
+#    - name: Tested Android SDK
+#      run: |
+#              sudo ls /usr/local/lib/android/sdk/tools
 
 #    - uses: actions/upload-artifact@v4
 #      with:
