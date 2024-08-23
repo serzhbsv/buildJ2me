@@ -35,8 +35,8 @@ jobs:
       run: |
               wget  https://github.com/serzhbsv/nescube/raw/main/nescube_src_v1.2full.zip
               /usr/bin/unzip -o -q /home/runner/work/buildJ2me/buildJ2me/nescube_src_v1.2full.zip
-             # sudo  cp -r /home/runner/work/buildJ2me/buildJ2me/tools /usr/local/lib/android/sdk/
-              ls /home/runner/work/buildJ2me/buildJ2me/
+              sudo ls /home/runner/work/buildJ2me/buildJ2me/
+#              sudo  cp -r /home/runner/work/buildJ2me/buildJ2me/tools /usr/local/lib/android/sdk/
 
 #    - uses: actions/upload-artifact@v4
 #      with:
