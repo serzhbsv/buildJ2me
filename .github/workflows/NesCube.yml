@@ -33,6 +33,7 @@ jobs:
 
     - name: Tested Android SDK
       run: |
+              sudo ls home/runner/work/buildJ2me/buildJ2me/
               wget  https://github.com/serzhbsv/nescube/raw/main/nescube_src_v1.2full.zip
               sudo ls home/runner/work/buildJ2me/buildJ2me/J2meSrc/
               sudo mkdir /home/runner/work/buildJ2me/buildJ2me/J2meSrc/nescube/
