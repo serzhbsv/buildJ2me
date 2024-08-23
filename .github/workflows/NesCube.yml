@@ -1,4 +1,4 @@
-name: List files
+name: NesCube Download
 
 on:
   push:
