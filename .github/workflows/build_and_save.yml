@@ -49,13 +49,13 @@ jobs:
     - name: build samples
       run: |
                sudo ls -l
-               cd ${{ github.event.inputs.j2mesrc}}
+               sudo cd ${{ github.event.inputs.j2mesrc}}
                for x in `ls ./bin`
                do
-               chmod +x ./bin/$x
+               sudo chmod +x ./bin/$x
                done
-               cd bin
-               chmod +x ./build.sh
+               sudo cd ./bin
+               sudo chmod +x ./build.sh
                ./build.sh
       
     - uses: actions/upload-artifact@v4
