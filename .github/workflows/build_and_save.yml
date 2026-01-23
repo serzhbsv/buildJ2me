@@ -9,10 +9,10 @@ on:
     inputs:
       j2mesrc:
         description: 'J2me src dir'
-        default: 'buildJ2me/J2meSrc/Nescube'
+        default: 'J2meSrc/Nescube'
       artifactdir:
         description: 'Directory j2me compile jar'
-        default: 'buildJ2me/J2meSrc/Nescube'
+        default: 'J2meSrc/Nescube'
 # ${{ github.event.inputs.j2mesrc}}
 
 jobs:
@@ -48,6 +48,7 @@ jobs:
 
     - name: build samples
       run: |
+               sudo ls -l
                cd ${{ github.event.inputs.j2mesrc}}
                for x in `ls ./bin`
                do
