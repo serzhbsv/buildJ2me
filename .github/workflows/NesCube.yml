@@ -31,13 +31,13 @@ jobs:
 #      with:
 #            cmdline-tools-version: 9123335
 
-    - name: Tested Android SDK
+    - name: Download Nescube Src
       run: |
               # sudo ls -l
               wget  https://github.com/serzhbsv/nescube/raw/main/nescube_src_v1.2full.zip
               sudo ls J2meSrc
               sudo mkdir J2meSrc/nescube/
-              /usr/bin/unzip -o -q nescube_src_v1.2full.zip -d J2meSrc/nescube/
+              sudo /usr/bin/unzip -o -q nescube_src_v1.2full.zip -d J2meSrc/nescube/
               sudo ls J2meSrc/nescube/
 #              sudo  cp -r /home/runner/work/buildJ2me/buildJ2me/tools /usr/local/lib/android/sdk/
 
@@ -54,5 +54,6 @@ jobs:
 #        name: SDK Zipped
 #        path: /home/runner/work/buildJ2me/buildJ2me/J2meSrc/toolssdk.zip
  
+
 
 
