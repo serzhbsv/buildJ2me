@@ -49,7 +49,7 @@ jobs:
     - name: build samples
       run: |
                sudo ls -l
-               sudo cd ${{ github.event.inputs.j2mesrc}}
+               cd ${{ github.event.inputs.j2mesrc}}
                for x in `ls ./bin`
                do
                sudo chmod +x ./bin/$x
