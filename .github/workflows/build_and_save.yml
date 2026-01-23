@@ -9,10 +9,10 @@ on:
     inputs:
       j2mesrc:
         description: 'J2me src dir'
-        default: '/home/runner/work/buildJ2me/buildJ2me/J2meSrc/Demos'
+        default: 'buildJ2me/J2meSrc/Nescube'
       artifactdir:
         description: 'Directory j2me compile jar'
-        default: '/home/runner/work/buildJ2me/buildJ2me/J2meSrc/Demos'
+        default: 'buildJ2me/J2meSrc/Nescube'
 # ${{ github.event.inputs.j2mesrc}}
 
 jobs:
@@ -38,7 +38,13 @@ jobs:
     - name: Get short SHA
       id: slug
       run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
-
+    
+    - name: Download Nescube Src
+      run: |
+              wget  https://github.com/serzhbsv/nescube/raw/main/nescube_src_v1.2full.zip
+              sudo mkdir J2meSrc/nescube/
+              sudo /usr/bin/unzip -o -q nescube_src_v1.2full.zip -d J2meSrc/nescube/
+              sudo ls J2meSrc/nescube/
 
     - name: build samples
       run: |
