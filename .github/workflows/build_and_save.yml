@@ -54,7 +54,7 @@ jobs:
                do
                sudo chmod +x ./bin/$x
                done
-               sudo cd ./bin
+               cd ./bin
                sudo chmod +x ./build.sh
                ./build.sh
       
