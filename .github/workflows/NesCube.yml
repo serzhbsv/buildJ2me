@@ -33,12 +33,12 @@ jobs:
 
     - name: Tested Android SDK
       run: |
-              sudo ls -l
+              # sudo ls -l
               wget  https://github.com/serzhbsv/nescube/raw/main/nescube_src_v1.2full.zip
-              sudo ls home/runner/work/buildJ2me/J2meSrc/
-              sudo mkdir /home/runner/work/buildJ2me/J2meSrc/nescube/
-              /usr/bin/unzip -o -q /home/runner/work/buildJ2me/nescube_src_v1.2full.zip -d home/runner/work/buildJ2me/J2meSrc/nescube/
-              sudo ls home/runner/work/buildJ2me/buildJ2me/J2meSrc/nescube/
+              sudo ls J2meSrc
+              sudo mkdir J2meSrc/nescube/
+              /usr/bin/unzip -o -q nescube_src_v1.2full.zip -d J2meSrc/nescube/
+              sudo ls J2meSrc/nescube/
 #              sudo  cp -r /home/runner/work/buildJ2me/buildJ2me/tools /usr/local/lib/android/sdk/
 
 #    - uses: actions/upload-artifact@v4
@@ -54,4 +54,5 @@ jobs:
 #        name: SDK Zipped
 #        path: /home/runner/work/buildJ2me/buildJ2me/J2meSrc/toolssdk.zip
  
+
 
