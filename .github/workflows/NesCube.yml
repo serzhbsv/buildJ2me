@@ -1,4 +1,4 @@
-name: NesCube Download
+name: build artifacts
 
 on:
   push:
@@ -6,7 +6,14 @@ on:
       - '*'
       
   workflow_dispatch:
-
+    inputs:
+      j2mesrc:
+        description: 'J2me src dir'
+        default: 'J2meSrc/Nescube'
+      artifactdir:
+        description: 'Directory j2me compile jar'
+        default: 'J2meSrc/Nescube'
+# ${{ github.event.inputs.j2mesrc}}
 
 jobs:
   build:
@@ -15,45 +22,44 @@ jobs:
 
     steps:
     - uses: actions/checkout@v2
-    
     - name: set up JDK 8
       uses: actions/setup-java@v1
       with:
         java-version: 8
-
         
-#    - uses: cedx/setup-ant@main
+  #  - uses: cedx/setup-ant@main
 #      with:
 #          optional-tasks: true
+#    - run: ant -version
 
 #    - name: Setup Android SDK
 #      uses: android-actions/setup-android@v3
-#      with:
-#            cmdline-tools-version: 9123335
-
+    
+    - name: Get short SHA
+      id: slug
+      run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
+    
     - name: Download Nescube Src
       run: |
-              # sudo ls -l
               wget  https://github.com/serzhbsv/nescube/raw/main/nescube_src_v1.2full.zip
-              sudo ls J2meSrc
               sudo mkdir J2meSrc/nescube/
               sudo /usr/bin/unzip -o -q nescube_src_v1.2full.zip -d J2meSrc/nescube/
               sudo ls J2meSrc/nescube/
-#              sudo  cp -r /home/runner/work/buildJ2me/buildJ2me/tools /usr/local/lib/android/sdk/
 
-#    - uses: actions/upload-artifact@v4
-#      with:
-#        name: androidSdk-zipped
-#        path: |
-#                   /usr/local/lib/android/sdk/
-                  
-                  
-        
-#    - uses: actions/upload-artifact@v4
-#      with:
-#        name: SDK Zipped
-#        path: /home/runner/work/buildJ2me/buildJ2me/J2meSrc/toolssdk.zip
- 
-
-
-
+    - name: build samples
+      run: |
+               sudo ls -l
+               cd ${{ github.event.inputs.j2mesrc}}
+               for x in `ls ./bin`
+               do
+               sudo chmod +x ./bin/$x
+               done
+               cd ./bin
+               sudo chmod +x ./build.sh
+               ./build.sh
+      
+    - uses: actions/upload-artifact@v4
+      with:
+        name: J2me-build-${{ steps.slug.outputs.sha8 }}
+        path: |
+                  ${{ github.event.inputs.artifactdir}}/bin/
