@@ -22,30 +22,6 @@ public class FontParserMIDlet extends MIDlet implements CommandListener {
                 display.setCurrent(form);
                 return;
             }
-import javax.microedition.lcdui.*;
-import javax.microedition.midlet.MIDlet;
-import java.io.InputStream;
-
-public class FontParserMIDlet extends MIDlet implements CommandListener {
-    private Display display;
-    private Form form;
-    private Command exit;
-
-    public void startApp() {
-        display = Display.getDisplay(this);
-        form = new Form("Font from Game");
-        exit = new Command("Exit", Command.EXIT, 1);
-        form.addCommand(exit);
-        form.setCommandListener(this);
-
-        try {
-            // 1. Загружаем font.pmj
-            InputStream is = getClass().getResourceAsStream("/font.pmj");
-            if (is == null) {
-                form.append("File not found");
-                display.setCurrent(form);
-                return;
-            }
             byte[] data = new byte[is.available()];
             is.read(data);
             is.close();
@@ -87,35 +63,6 @@ public class FontParserMIDlet extends MIDlet implements CommandListener {
                 form.append(new ImageItem(null, img, ImageItem.LAYOUT_DEFAULT, null));
             } else {
                 form.append("Not enough data for first char");
-            }
-
-        } catch (Exception e) {
-            form.append("Error: " + e.toString());
-            e.printStackTrace();
-        }
-
-        display.setCurrent(form);
-    }
-
-    public void commandAction(Command c, Displayable d) {
-        if (c == exit) {
-            destroyApp(true);
-            notifyDestroyed();
-        }
-    }
-
-    public void pauseApp() {}
-    public void destroyApp(boolean unconditional) {}
-}
-th && firstChar[idx] > 0) {
-                            g.setColor(0x000000);
-                            g.drawLine(x, y, x, y);
-                        }
-                    }
-                }
-                form.append(new ImageItem(null, img, ImageItem.LAYOUT_DEFAULT, null));
-            } else {
-                form.append("Первый символ пуст");
             }
 
         } catch (Exception e) {
