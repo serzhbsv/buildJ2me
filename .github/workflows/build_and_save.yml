@@ -9,10 +9,10 @@ on:
     inputs:
       j2mesrc:
         description: 'J2me src dir'
-        default: 'J2meSrc/Nescube'
+        default: '/home/runner/work/buildJ2me/buildJ2me/J2meSrc/pmjparser'
       artifactdir:
         description: 'Directory j2me compile jar'
-        default: 'J2meSrc/Nescube'
+        default: '/home/runner/work/buildJ2me/buildJ2me/J2meSrc/pmjparser'
 # ${{ github.event.inputs.j2mesrc}}
 
 jobs:
