@@ -15,7 +15,6 @@ public class FontParserMIDlet extends MIDlet implements CommandListener {
         form.setCommandListener(this);
 
         try {
-            // 1. Загружаем font.pmj
             InputStream is = getClass().getResourceAsStream("/font.pmj");
             if (is == null) {
                 form.append("File not found");
@@ -27,43 +26,44 @@ public class FontParserMIDlet extends MIDlet implements CommandListener {
             is.close();
             form.append("File size: " + data.length + " bytes\n");
 
-            // 2. Парсим вручную
             int charCount = data[0] & 0xFF;
             form.append("Chars: " + charCount + "\n");
 
-            // 3. Читаем смещения (2 байта на символ)
-            int[] offsets = new int[charCount];
-            for (int i = 0; i < charCount; i++) {
-                int idx = 1 + i * 2;
-                offsets[i] = ((data[idx] & 0xFF) << 8) | (data[idx + 1] & 0xFF);
-            }
-
-            // 4. Данные начинаются после заголовка (1 + charCount*2)
             int dataStart = 1 + charCount * 2;
             int w = 8, h = 12;
             int bytesPerChar = w * h;
 
-            // 5. Показываем первый символ
-            if (dataStart + bytesPerChar <= data.length) {
-                Image img = Image.createImage(w, h);
-                Graphics g = img.getGraphics();
-                g.setColor(0xFFFFFF);
-                g.fillRect(0, 0, w, h);
+            // Создаём сетку для первых 4 символов
+            int cols = 4;
+            int totalW = cols * (w + 2) + 2;
+            int totalH = h + 4;
+            Image grid = Image.createImage(totalW, totalH);
+            Graphics g = grid.getGraphics();
+            g.setColor(0xFFFFFF);
+            g.fillRect(0, 0, totalW, totalH);
 
-                for (int y = 0; y < h; y++) {
-                    for (int x = 0; x < w; x++) {
-                        int idx = dataStart + y * w + x;
+            for (int i = 0; i < Math.min(4, charCount); i++) {
+                int start = dataStart + i * bytesPerChar;
+                if (start + bytesPerChar > data.length) break;
+
+                int x = i * (w + 2) + 2;
+                int y = 2;
+                for (int py = 0; py < h; py++) {
+                    for (int px = 0; px < w; px++) {
+                        int idx = start + py * w + px;
                         int pixel = data[idx] & 0xFF;
                         if (pixel > 0) {
                             g.setColor(0x000000);
-                            g.drawLine(x, y, x, y);
+                            g.drawLine(x + px, y + py, x + px, y + py);
                         }
                     }
                 }
-                form.append(new ImageItem(null, img, ImageItem.LAYOUT_DEFAULT, null));
-            } else {
-                form.append("Not enough data for first char");
+                g.setColor(0x888888);
+                g.drawRect(x-1, y-1, w+1, h+1);
             }
+
+            form.append(new ImageItem(null, grid, ImageItem.LAYOUT_DEFAULT, null));
+            form.append("\nПоказаны первые 4 символа");
 
         } catch (Exception e) {
             form.append("Error: " + e.toString());
