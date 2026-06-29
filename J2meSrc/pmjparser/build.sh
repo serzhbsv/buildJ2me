@@ -49,7 +49,7 @@ ${PREVERIFY} \
 echo "Jaring preverified class files..."
 ${JAR} cmf MANIFEST.MF ${FontViewer}.jar -C ./classes .
 
-if [ -f font.pmj ] ; then
+if [ -e font.pmj ] ; then
   ${JAR} uf ${FontViewer}.jar font.pmj .
 fi
 
