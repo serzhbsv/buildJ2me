@@ -38,21 +38,14 @@ jobs:
     - name: Get short SHA
       id: slug
       run: echo "::set-output name=sha8::$(echo ${GITHUB_SHA} | cut -c1-8)"
-    
-    - name: Download Nescube Src
-      run: |
-              wget  https://github.com/serzhbsv/nescube/raw/main/nescube_src_v1.2full.zip
-              sudo mkdir J2meSrc/nescube/
-              sudo /usr/bin/unzip -o -q nescube_src_v1.2full.zip -d J2meSrc/nescube/
-              sudo ls J2meSrc/nescube/
 
     - name: build samples
       run: |
                sudo ls -l
                cd ${{ github.event.inputs.j2mesrc}}
-               for x in `ls ./bin`
+               for x in `ls ./`
                do
-               sudo chmod +x ./bin/$x
+               sudo chmod +x ./$x
                done
                cd ./bin
                sudo chmod +x ./build.sh
@@ -62,4 +55,4 @@ jobs:
       with:
         name: J2me-build-${{ steps.slug.outputs.sha8 }}
         path: |
-                  ${{ github.event.inputs.artifactdir}}/bin/
+                  ${{ github.event.inputs.artifactdir}}
