@@ -48,11 +48,3 @@ ${PREVERIFY} \
 
 echo "Jaring preverified class files..."
 ${JAR} cmf MANIFEST.MF ${FontViewer}.jar -C ./classes .
-
-if [ -d ./res ] ; then
-  ${JAR} uf ${FontViewer}.jar -C ./res .
-fi
-
-echo
-echo "Don't forget to update the JAR file size in the JAD file!!!"
-echo
