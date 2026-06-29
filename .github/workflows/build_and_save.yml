@@ -1,4 +1,4 @@
-name: build artifacts
+name: build j2me and save
 
 on:
   push:
