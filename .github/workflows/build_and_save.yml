@@ -57,4 +57,4 @@ jobs:
       with:
         name: J2me-build-${{ steps.slug.outputs.sha8 }}
         path: |
-                  ${{ github.event.inputs.artifactdir}}
+                  ${{ github.event.inputs.artifactdir}}/FontViewer.jar
