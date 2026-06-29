@@ -43,6 +43,7 @@ jobs:
       run: |
                cd ${{ github.event.inputs.j2mesrc}}
                sudo ls -l
+               sudo chmod +x ../../bin/preverify
                sudo chmod +x ./build.sh
                ./build.sh
       
