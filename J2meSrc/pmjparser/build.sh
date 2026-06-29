@@ -4,10 +4,10 @@
 # it then packages them in a JAR file appropriately.
 #
 DEMO=demos
-LIB_DIR=../../../lib
+LIB_DIR=../../lib
 CLDCAPI=${LIB_DIR}/cldcapi10.jar
 MIDPAPI=${LIB_DIR}/midpapi20.jar
-PREVERIFY=../../../bin/preverify
+PREVERIFY=../../bin/preverify
 
 PATHSEP=":"
 
