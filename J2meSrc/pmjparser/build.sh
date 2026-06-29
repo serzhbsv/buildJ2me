@@ -3,7 +3,7 @@
 # This batch file builds and preverifies the code for the demos.
 # it then packages them in a JAR file appropriately.
 #
-DEMO=demos
+FontViewer=FontViewer
 LIB_DIR=../../lib
 CLDCAPI=${LIB_DIR}/cldcapi10.jar
 MIDPAPI=${LIB_DIR}/midpapi20.jar
